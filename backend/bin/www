@@ -31,13 +31,10 @@ server.listen(port,function(){
 server.on('error', onError);
 server.on('listening', onListening);
 
-
-
 var onlineUsers = {};
 var sentMessages = [];
 
-
-io.on('connection', function(socket) {
+io.on('connection', function(socket){
     console.log('Socket connected with ID of ' + socket.id);
     socket.on('user logged in', function(username) {
         console.log('%s has joined the chat!', username);

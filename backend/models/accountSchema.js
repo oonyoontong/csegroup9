@@ -10,7 +10,10 @@ var AccountSchema = new Schema({
     email: String,
     privilege: Number,
     class: String,
-    coursesEnrolled: [Schema.Types.ObjectId]
+    coursesEnrolled: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Course'
+    }]
 	});
 
 

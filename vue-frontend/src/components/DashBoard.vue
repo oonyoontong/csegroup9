@@ -13,13 +13,14 @@
 
     export default {
         name: "dash-board",
-
         methods: {
             logout: function(){
                 console.log("button logout");
                 this.$router.push('/logout');
             }
+
         }
+
     }
 </script>
 

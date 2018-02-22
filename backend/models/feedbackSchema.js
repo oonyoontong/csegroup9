@@ -2,10 +2,10 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var FeedbackSchema = new mongoose.Schema({
-    student: Schema.Types.ObjectId,
+    student: {type:Schema.Types.ObjectId,ref: 'Student'},
     feedback: String,
     slideNumber: Number,
-    lecture: Schema.Types.ObjectId
+    lecture: {type:Schema.Types.ObjectId, ref: 'Lecture'}
 	})
 
 module.exports = mongoose.model('Feedback', FeedbackSchema);

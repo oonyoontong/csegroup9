@@ -67,7 +67,8 @@ const router = new VueRouter({
                 },
                 {
                     path:'lecture/',
-                    component: LectureView
+                    component: LectureView,
+                    props: (route) => ({ query: route.query.q })
                 }
                 ]
         },

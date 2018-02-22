@@ -13,7 +13,6 @@ var app = express();
 var session = require('express-session');
 var passport = require('passport');
 var http = require('http').Server(express);
-var io = require('socket.io')(http);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

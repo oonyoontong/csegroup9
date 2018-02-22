@@ -6,26 +6,45 @@
 
         <div class="Message--Message" v-else>
             <p class="Message__Author">
-                <strong>{{ data.username }}</strong> said,
                 {{ data.timestamp }}
             </p>
 
             <p class="Message__Content">
                 {{ data.message }}
             </p>
+            <label>{{upvote}}</label>
+            <button v-on:click="upVote">upvote</button>
+
+
         </div>
     </div>
 </template>
 
 <script>
     export default {
+        data(){
+            return {
+                upvote: 0
+            }
+        },
         props: ['data'],
+
         computed: {
             isAlert() {
                 return this.data.type === 'alert'
             }
+        },
+
+        methods:{
+            upVote: function(){
+                console.log("upvaote");
+                this.$data.upvote++;
+            }
+
         }
+
     }
+
 </script>
 
 <style>

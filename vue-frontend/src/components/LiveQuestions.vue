@@ -1,7 +1,7 @@
 
 <template>
     <div id="ChatBox">
-        <div class="col-md-9 ChatBox__Left">
+        <div class="col-s-2">
             <div class="ChatBox__List">
                 <chat-message v-for="message in messages" :data="message"></chat-message>
             </div>
@@ -13,17 +13,6 @@
             </div>
         </div>
 
-        <div class="col-md-3 ChatBox__Right">
-            <h3>Online Users</h3>
-
-            <ul class="ChatBox__OnlineUsers">
-                <li v-for="user in onlineUsers">
-                    {{ user }}
-
-                    <a href="#" :data-username="user" @click="kickUser" v-if="isAdmin">[ kick ]</a>
-                </li>
-            </ul>
-        </div>
     </div>
 </template>
 
@@ -51,7 +40,6 @@
             },
             'user left': function(message) {
                 this.$data.messages.push(message)
-                this.$data.onlineUsers.$remove(message.username)
             }
         },
         methods: {
