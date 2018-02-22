@@ -3,16 +3,18 @@ import App from './App.vue'
 import VueRouter from 'vue-router'
 import auth from './auth'
 
+
+
 import Login from './components/Login.vue'
 import DashBoard from './components/DashBoard'
 import UserProfile from './components/UserProfile'
 import CourseView from './components/CourseView'
-
+import LectureView from './components/LectureView'
 
 Vue.use(VueRouter);
-
-
 Vue.config.productionTip = false
+
+
 
 
 function requireAuth (to, from, next) {
@@ -49,6 +51,20 @@ const router = new VueRouter({
                 {
                     path: 'profile',
                     component: UserProfile
+                },
+                {
+                    path:'/',
+                     redirect:'courses'
+
+                },
+                {
+                    path:'courses',
+                    component: CourseView,
+                    props: (route) => ({ query: route.query.q })
+                },
+                {
+                    path:'lecture/',
+                    component: LectureView
                 }
                 ]
         },

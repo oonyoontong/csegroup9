@@ -9,9 +9,12 @@ require("./models/accountSchema");
 var auth = require('./routes/auth');
 var users = require('./routes/users');
 var index = require('./routes/index');
+var socket = require('./routes/socket');
 var app = express();
 var session = require('express-session');
 var passport = require('passport');
+var http = require('http').Server(express);
+var io = require('socket.io')(http);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -35,9 +38,7 @@ app.use(passport.session());
 app.use('/', index);
 app.use('/account',auth);
 app.use('/users', users);
-
-
-
+app.use('/socket',socket);
 
 //Connecting to MongoDB
 var mongoDB =  'mongodb://localhost/smartclass';
@@ -47,6 +48,14 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console,'MongoDB connection error'));
 
 
+
+
+//SOCKET.IO CONNECTION
+io.on('connection',function(socket){
+    socket.on('join',function(user){
+        console.log("user joined");
+    })
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
