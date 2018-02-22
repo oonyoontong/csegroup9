@@ -5,8 +5,8 @@
             You need to login first.
         </p>
         <form @submit.prevent="login">
-            <label><input v-model="username" placeholder="username"></label>
-            <label><input v-model="password" placeholder="password" type="password"></label> (hint: password1)<br>
+            <input v-model="username" placeholder="username">
+            <input v-model="password" placeholder="password" type="password"> <br>
             <button type="submit">login</button>
             <p v-if="error" class="error">Bad login information</p>
         </form>
@@ -23,8 +23,8 @@
         name: "login",
         data(){
             return {
-                username: "username",
-                password: "password",
+                username: "",
+                password: "",
                 error: false
             }
         },
