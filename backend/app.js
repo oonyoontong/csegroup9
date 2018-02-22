@@ -9,7 +9,6 @@ require("./models/accountSchema");
 var auth = require('./routes/auth');
 var users = require('./routes/users');
 var index = require('./routes/index');
-var socket = require('./routes/socket');
 var app = express();
 var session = require('express-session');
 var passport = require('passport');
@@ -22,6 +21,8 @@ app.set('view engine', 'jade');
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
+
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -38,7 +39,6 @@ app.use(passport.session());
 app.use('/', index);
 app.use('/account',auth);
 app.use('/users', users);
-app.use('/socket',socket);
 
 //Connecting to MongoDB
 var mongoDB =  'mongodb://localhost/smartclass';
@@ -50,12 +50,6 @@ db.on('error', console.error.bind(console,'MongoDB connection error'));
 
 
 
-//SOCKET.IO CONNECTION
-io.on('connection',function(socket){
-    socket.on('join',function(user){
-        console.log("user joined");
-    })
-})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

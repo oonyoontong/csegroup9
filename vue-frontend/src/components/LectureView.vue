@@ -1,3 +1,4 @@
+
 <template>
     <div>
         <h1>LECTURE VIEW</h1>

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
 import auth from './auth'
+import VueSocketio from 'vue-socket.io';
 
 
 
@@ -14,6 +15,8 @@ import LectureView from './components/LectureView'
 Vue.use(VueRouter);
 Vue.config.productionTip = false
 
+
+Vue.use(VueSocketio, 'http://localhost:5000');
 
 
 
