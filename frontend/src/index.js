@@ -3,9 +3,15 @@ import ReactDOM from 'react-dom';
 import './styling/index.css';
 import registerServiceWorker from './registerServiceWorker';
 import {Route,BrowserRouter,Switch,Redirect} from 'react-router-dom';
+import store from './store';
 
-import {Login} from "./components/Login"
-import {DashBoard} from "./components/DashBoard"/*
+
+import {Login} from "./components/Login";
+import {Provider} from "react-redux";
+import {DashBoard} from "./components/DashBoard";
+
+
+/*
 import {Profile} from "./components/Profile"
 import {MainMenu} from "./components/MainMenu"
 import {CourseView} from "./components/CourseView"
@@ -16,6 +22,7 @@ import {LectureView} from "./components/LectureView"
                         <Route path ="/profile:username" component = {Profile}/>
                         <Route path ="/course/lecture:?" component = {LectureView}/>
                 </Route>*/
+
 
 class App extends Component {
 
@@ -48,5 +55,8 @@ class App extends Component {
 
 
 
-ReactDOM.render(<App/> , document.getElementById('app'));
+ReactDOM.render(
+    <Provider store = {store}>
+        <App/>
+    </Provider> , document.getElementById('app'));
 registerServiceWorker();
