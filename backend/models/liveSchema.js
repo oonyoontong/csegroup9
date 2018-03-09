@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 
-var liveSchema = new Schmea({
+var liveSchema = new Schema({
 
     message: String,
     dateCreated: Date,
@@ -11,4 +11,3 @@ var liveSchema = new Schmea({
 
 
 })
-

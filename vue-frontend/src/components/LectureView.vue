@@ -15,6 +15,9 @@
         components: {
             livequestions: LiveQuestions
         },
+        mounted: function(){
+            setTimeout(20000)
+        }
 
     }
 </script>

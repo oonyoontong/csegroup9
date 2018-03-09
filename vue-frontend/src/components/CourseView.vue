@@ -13,18 +13,16 @@
 
     export default {
         name: "course-view",
-        data() {
-            return {
-                lectureInput: ""
-
-            }
-        },
+        props: [
+            'lectureInput'
+        ],
         methods: {
             lectureQuery: function () {
-                this.$router.push({
+                console.log("wtfwtf")
+                this.$router.replace({
                     path: 'lecture',
                     query: {
-                        q: this.$data.lectureInput
+                        q: this.lectureInput
                     }
                     }
                 )
