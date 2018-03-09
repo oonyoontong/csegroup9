@@ -1,11 +1,5 @@
 <template>
-    <div>
-    <h1>COURSEVIEW {{ $route.query.q }}</h1>
-        <form v-on:submit="lectureQuery">
-            <input v-model="lectureInput" placeholder="lecture">
-            <button type="submit">submit</button>
-        </form>
-    </div>
+
 </template>
 
 <script>

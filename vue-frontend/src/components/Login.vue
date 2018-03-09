@@ -1,7 +1,7 @@
 <template>
     <div class = "login_page">
         <nav id = "header" class = "col-md-12">
-            <img src="../assets/app-icon.png" id="app-icon">
+            <img src="../assets/app-icon.png" id="app-icon" height="50" width="50">
         </nav>
         <div class = "col-md-4 offset-md-4 text-center" id = "wrapper">
             <form @submit.prevent="login" class = "form-signin" >
@@ -69,12 +69,12 @@
 
 <style scoped>
     #app-icon{
-        padding-top: 15px;
+        margin: 10px;
     }
+
 
     #header{
         background-color: rgba(0,0,0,0.3);
-        height: 10%;
     }
 
     .login_page{
