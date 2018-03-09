@@ -43,14 +43,14 @@
                 <li class="dropdown">
                     <a href="#" data-toggle="dropdown" class="dropdown-toggle">
                         <i class="fas fa-list fa-2x " ></i>
-                        <span class="nav-text caret">
+                        <span class="nav-text">
                             Courses
 
                         </span>
 
                     </a>
 
-                    <ul class="dropdown-menu" id="menu1">
+                    <ul class="dropdown-menu forAnimate" id="menu1" role="menu">
                         <li><a href="#">Another action</a></li>
                         <li><a href="#">Something else here</a></li>
                         <li class="divider"></li>
@@ -192,22 +192,24 @@
         overflow:visible;
     }
 
-    .dropdown-menu .sub-menu {
-        left: 100%;
-        position: absolute;
-        top: 0;
-        visibility: hidden;
-        margin-top: -1px;
-    }
 
-    .dropdown-menu li:hover .sub-menu {
-        visibility: visible;
-    }
+
+
 
     .dropdown:hover .dropdown-menu {
         display: block;
     }
 
+    .dropdown-menu {
+        position: static;
+        float: none;
+        width: auto;
+        margin-top: 0;
+        background-color: transparent;
+        border: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
 
     .main-menu {
         background:#212121;
