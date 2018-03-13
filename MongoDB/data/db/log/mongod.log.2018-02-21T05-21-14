@@ -1,2 +1,0 @@
-2018-02-21T13:20:15.849+0800 I CONTROL  [main] Trying to install Windows service 'MongoDB'
-2018-02-21T13:20:15.851+0800 I CONTROL  [main] Error connecting to the Service Control Manager: Access is denied. (5)
