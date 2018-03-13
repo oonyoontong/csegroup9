@@ -54,7 +54,7 @@
                 auth.login(this.username,this.password,loggedIn =>{
                     console.log("finished checking");
                     if (!loggedIn){
-                        console.log("errorr");
+                        console.log("error");
                         this.error = true;
                     } else {
                         console.log("attempting to route to dashboard");

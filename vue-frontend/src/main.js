@@ -57,18 +57,20 @@ const router = new VueRouter({
                 },
                 {
                     path:'/',
-                     redirect:'courses'
+                     redirect:'courses/all'
 
                 },
                 {
-                    path:'courses',
+                    path:'courses/:courseID',
                     component: CourseView,
-                    props: (route) => ({ query: route.query.q })
-                },
-                {
-                    path:'lecture/',
-                    component: LectureView,
-                    props: (route) => ({ query: route.query.q })
+                    /*props: (route) => ({ query: route.query.q }),*/
+                    children:[
+                        {
+                            path:'lecture/:lectureID',
+                            component: LectureView
+                            /*props: (route) => ({ query: route.query.q })*/
+                        }
+                    ]
                 }
                 ]
         },

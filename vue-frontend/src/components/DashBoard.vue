@@ -1,76 +1,72 @@
 <template>
     <div class="dashboard_page">
-    <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-light navbar-fixed-top " id="top-nav">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="./courses">
-                <img src="../assets/app-icon.png" height="40" width="40">
-                <span class="hover" style="padding-left: 10px; color: #fff;">SmartClass</span>
-            </a>
-            <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
+            <header class="navbar navbar-fixed-top navbar-expand-lg navbar-light navbar-fixed-top " id="top-nav">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="./courses">
+                        <img src="../assets/app-icon.png" height="35" width="35">
+                        <span class="hover" style="padding-left: 10px; color: #fff;">SmartClass</span>
+                    </a>
+                    <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-                    <li class="nav-item col-xs-6 col-sm-4 col-md-3">
-                        <a class="navbar-brand" href="./profile">
-                            <img src="../assets/profile-icon.png" height="25" width="25">
-                            <span class="hover">Profile</span>
-                        </a>
-                    </li>
-                    <li class="nav-item col-xs-6 col-sm-4 col-md-3 offset-xs-7 offset-sm-5 offset-md-4" >
-                        <a class="navbar-brand" href="./quiz">
-                            <img src="../assets/quiz-icon.png" height="25" width="25">
-                            <span class="hover">Quiz</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>-->
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
 
-            <a class="navbar-brand" href="../logout">
-                <img src="../assets/logout-icon.png" height="30" width="30">
-            </a>
+                            <li class="nav-item col-xs-6 col-sm-4 col-md-3">
+                                <a class="navbar-brand" href="./profile">
+                                    <img src="../assets/profile-icon.png" height="25" width="25">
+                                    <span class="hover">Profile</span>
+                                </a>
+                            </li>
+                            <li class="nav-item col-xs-6 col-sm-4 col-md-3 offset-xs-7 offset-sm-5 offset-md-4" >
+                                <a class="navbar-brand" href="./quiz">
+                                    <img src="../assets/quiz-icon.png" height="25" width="25">
+                                    <span class="hover">Quiz</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>-->
 
-        </div>
-    </nav>
+                    <a class="navbar-brand" href="../logout">
+                        <img src="../assets/logout-icon.png" height="25" width="25">
+                    </a>
 
-    <div>
+                </div>
+            </header>
+
+
         <nav class="main-menu">
             <ul>
 
 
                 <li class="dropdown">
-                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                    <a>
                         <i class="fas fa-list fa-2x " ></i>
                         <span class="nav-text">
                             Courses
-
                         </span>
-
                     </a>
 
-                    <ul class="dropdown-menu forAnimate" id="menu1" role="menu">
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
+                    <ul class="dropdown-menu" id="menu1" role="menu">
+                        <li>
+                            <a href="#" display="block">
+                            <span class="nav-text">Another action</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <span class="nav-text">Something else here</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <span class="nav-text">Separated link</span>
+                            </a>
+                        </li>
                     </ul>
 
-                    <!--<ul class="dropdown-menu">
-                        <li><a href="#">Crear</a></li>
-                        <li><a href="#">Modificar</a></li>
-                        <li><a href="#">Reportar</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Informes</a></li>
-                    </ul>-->
-
-                <!--<li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuarios <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
-
-                </li>-->
 
 
                 <li class="has-subnav">
@@ -123,17 +119,17 @@
             </ul>
 
         </nav>
+
+
+        <div style="height:9999px">
+
+            <router-view/>
+        </div>
     </div>
 
 
 
 
-    <div style="height:9999px">
-
-        <router-view/>
-    </div>
-
-    </div>
 
 
 </template>
@@ -151,7 +147,7 @@
         methods: {
             logout: function(){
                 console.log("button logout");
-                this.$router.push('/logout');
+                this.$router.push('./logout');
             }
 
         }
@@ -163,7 +159,7 @@
 
     #top-nav{
         background-color: #31A9C1;
-        height: 7%;
+        height: fit-content;
         width: 100%;
         font-family: "Roboto";
         position:fixed;
@@ -203,27 +199,55 @@
     .dropdown-menu {
         position: static;
         float: none;
-        width: auto;
+        width: 100%;
         margin-top: 0;
         background-color: transparent;
         border: 0;
         -webkit-box-shadow: none;
         box-shadow: none;
+        background:#212121;
+        border-right:1px solid #e5e5e5;
+    }
+
+    /*.dropdown-menu>ul {
+        margin:7px 0;
+    }*/
+
+    .dropdown-menu li {
+        position:relative;
+        display:block;
+        width:250px;
+    }
+
+    .dropdown-menu li>a {
+        position:relative;
+        display:table;
+        border-collapse:collapse;
+        border-spacing:0;
+        color:#999;
+        font-family: arial;
+        font-size: 14px;
+        text-decoration:none;
+        -webkit-transform:translateZ(0) scale(1,1);
+        -webkit-transition:all .1s linear;
+        transition:all .1s linear;
+        text-align: center;
     }
 
     .main-menu {
         background:#212121;
         border-right:1px solid #e5e5e5;
-        position:fixed;
         left:0;
-        height: 93%;
-        bottom:0;
+        top: 0;
+        height: 100%;
+        margin-top:61px;
         width:60px;
         overflow:hidden;
         -webkit-transition:width .05s linear;
         transition:width .05s linear;
         -webkit-transform:translateZ(0) scale(1,1);
         z-index:1000;
+        position: fixed;
     }
 
     .main-menu>ul {
@@ -248,7 +272,6 @@
         -webkit-transform:translateZ(0) scale(1,1);
         -webkit-transition:all .1s linear;
         transition:all .1s linear;
-
     }
 
     .main-menu .nav-icon {
