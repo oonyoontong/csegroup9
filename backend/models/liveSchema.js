@@ -11,3 +11,6 @@ var liveSchema = new Schema({
 
 
 })
+
+
+module.exports = mongoose.model('Live', liveSchema);

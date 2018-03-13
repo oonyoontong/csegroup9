@@ -57,7 +57,7 @@ app.use('/account',auth);
 app.use('/users', users);
 
 //Connecting to MongoDB
-var mongoDB =  'mongodb://localhost/smartclass';
+var mongoDB =  'mongodb://username:password@ds012578.mlab.com:12578/smartclass-db';
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;

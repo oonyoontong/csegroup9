@@ -9,7 +9,12 @@ var LectureSchema = new Schema({
     live : [{
         type: Schema.Types.ObjectId,
         ref: 'Live'
+    }],
+    quiz : [{
+        type: Schema.Types.ObjectId,
+        ref: 'Quiz'
     }]
+
     //How to include ppt
     //quiz
 })
