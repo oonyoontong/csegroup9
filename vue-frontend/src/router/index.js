@@ -1,22 +1,19 @@
 import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import auth from './auth'
-import VueSocketio from 'vue-socket.io';
-/*Vue.use(VueRouter);*/
-Vue.config.productionTip = false
+import Router from 'vue-router'
+import Login from '../components/Login.vue'
+import DashBoard from '../components/DashBoard'
+import UserProfile from '../components/UserProfile'
+import CourseView from '../components/CourseView'
+import LectureView from '../components/LectureView'
+import auth from "../auth";
 
-
-/*
-Vue.use(VueSocketio, 'http://localhost:5000');
-*/
-
+Vue.use(Router)
 
 
 function requireAuth (to, from, next) {
     console.log(auth.loggedIn());
     if (!auth.loggedIn()) {
-      console.log('going login');
+        console.log('going login');
         next({
             path: '/login',
             query: {redirect:to.fullPath}
@@ -26,17 +23,17 @@ function requireAuth (to, from, next) {
     }
 }
 
-/*const router = new VueRouter({
+export default new Router({
     mode: 'history',
     routes: [
         {path: '/', redirect: '/login'},
         { path: '/login', component: Login ,beforeEnter(to,from,next){
-            console.log("checking for existing cookies");
-            if (auth.loggedIn()){
-                next({path: '/dashboard'});
-            } else {
-                next();
-            }
+                console.log("checking for existing cookies");
+                if (auth.loggedIn()){
+                    next({path: '/dashboard'});
+                } else {
+                    next();
+                }
             } },
 
         {
@@ -50,22 +47,22 @@ function requireAuth (to, from, next) {
                 },
                 {
                     path:'/',
-                     redirect:'courses/all'
+                    redirect:'courses/all'
 
                 },
                 {
                     path:'courses/:courseID',
                     component: CourseView,
-                    /!*props: (route) => ({ query: route.query.q }),*!/
+                    /*props: (route) => ({ query: route.query.q }),*/
                     children:[
                         {
                             path:'lecture/:lectureID',
                             component: LectureView
-                            /!*props: (route) => ({ query: route.query.q })*!/
+                            /*props: (route) => ({ query: route.query.q })*/
                         }
                     ]
                 }
-                ]
+            ]
         },
         {   name: 'logout',
             path: '/logout',
@@ -75,10 +72,4 @@ function requireAuth (to, from, next) {
             }
         }
     ]
-})*/
-
-new Vue({
-    el:'#app',
-    router,
-  render: h => h(App)
-}).$mount('#app')
+})
