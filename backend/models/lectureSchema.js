@@ -5,7 +5,16 @@ var Schema = mongoose.Schema;
 var LectureSchema = new Schema({
     lectureName: String,
     description: String,
-    dateCreated: Date
+    dateCreated: Date,
+    live : [{
+        type: Schema.Types.ObjectId,
+        ref: 'Live'
+    }],
+    quiz : [{
+        type: Schema.Types.ObjectId,
+        ref: 'Quiz'
+    }]
+
     //How to include ppt
     //quiz
 })

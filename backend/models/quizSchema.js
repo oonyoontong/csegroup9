@@ -9,6 +9,3 @@ var QuizSchema = new Schema({
 	})
 
 module.exports = mongoose.model('Quiz', QuizSchema);
-	
-	
-		

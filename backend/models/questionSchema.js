@@ -5,11 +5,11 @@ var Schema = mongoose.Schema;
 var QuestionSchema = new Schema({
     question: String,
     questionType: Number,
-    options: [{name: String}],
+    options: [String],
     answer: Schema.Types.ObjectId,
     response: [{
-        student: Schema.Types.ObjectId,
-        option: Schema.Types.ObjectId,
+        student: {type:Schema.Types.ObjectId, ref: 'Account'},
+        option: String,
         result: Boolean
     }]
 
