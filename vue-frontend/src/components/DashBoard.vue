@@ -29,9 +29,9 @@
                         </ul>
                     </div>-->
 
-                    <a class="navbar-brand" href="../logout">
+                    <router-link :to="{name:'logout'}" class="navbar-brand">
                         <img src="../assets/logout-icon.png" height="25" width="25">
-                    </a>
+                    </router-link>
 
                 </div>
             </header>
@@ -147,7 +147,7 @@
         methods: {
             logout: function(){
                 console.log("button logout");
-                this.$router.push('./logout');
+                this.$router.push('testing');
             }
 
         }
